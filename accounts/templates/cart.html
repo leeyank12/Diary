@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Your Cart - DiaryGo</title>
+
+<!-- GOOGLE FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+  }
+
+  h1 {
+    text-align: center;
+    color: #2E5E4E;
+    margin-bottom: 20px;
+  }
+
+  .cart-container {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .cart-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .qty-input {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #888;
+  }
+
+  .remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .checkout-btn {
+    margin-top: 20px;
+    width: 100%;
+    background: #28a745;
+    color: white;
+    padding: 12px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .back-btn {
+    margin-top: 10px;
+    width: 100%;
+    background: #2E5E4E;
+    color: white;
+    padding: 12px;
+    border: none;
+    text-align: center;
+    border-radius: 10px;
+    display: inline-block;
+    text-decoration: none;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>🛒 Your Cart</h1>
+
+<div class="cart-container">
+
+  <!-- Cart Items -->
+  <div id="cartList"></div>
+
+  <!-- Total Amount -->
+  <h2 id="totalAmount"></h2>
+
+  <!-- Checkout -->
+  <button class="checkout-btn">Proceed to Checkout</button>
+
+  <!-- Back to Home -->
+  <a href="{% url 'home' %}" class="back-btn">⬅ Back to Home</a>
+
+</div>
+
+<script>
+// Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function renderCart() {
+  let list = document.getElementById("cartList");
+  let total = 0;
+  list.innerHTML = "";
+
+  if (cart.length === 0) {
+    list.innerHTML = "<h3>Your cart is empty.</h3>";
+    document.getElementById("totalAmount").innerText = "";
+    return;
+  }
+
+  // Show each product row
+  cart.forEach(item => {
+    total += item.price * item.qty;
+
+    list.innerHTML += `
+      <div class="cart-row">
+        <div>
+          <b>${item.name}</b> — ₹${item.price}
+        </div>
+
+        <input class="qty-input" type="number" min="1" value="${item.qty}"
+          onchange="updateQty('${item.name}', this.value)">
+
+        <button class="remove-btn" onclick="removeItem('${item.name}')">X</button>
+      </div>
+    `;
+  });
+
+  // Show total
+  document.getElementById("totalAmount").innerText = "Total: ₹" + total;
+}
+
+function updateQty(name, qty) {
+  qty = parseInt(qty);
+  if (qty < 1) return;
+
+  let item = cart.find(p => p.name === name);
+  item.qty = qty;
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+function removeItem(name) {
+  cart = cart.filter(item => item.name !== name);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  renderCart();
+}
+
+// First load
+renderCart();
+</script>
+
+</body>
+</html>

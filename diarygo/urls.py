@@ -21,5 +21,10 @@ urlpatterns = [
     path("", views.loginView, name="login"),
 path("register/", views.registerView, name="register"),
 path("home/", views.homeView, name="home"),
+path("cart/", views.cartView, name="cart"),
+path("help/", views.help, name="help"),
+path("join/", views.joinView, name="join"),
+path("about/", views.aboutView, name="about"),
+
 
 ]

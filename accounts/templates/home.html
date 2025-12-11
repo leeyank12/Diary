@@ -1,242 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DiaryGo - Home</title>
+<meta charset="UTF-8">
+<title>DiaryGo - Home</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-    }
+<!-- GOOGLE FONT MONTSERRAT -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
-    /* HEADER */
-    .header {
-      background: white;
-      padding: 20px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
+<style>
+  body, h1, h2, h3, h4, p, button {
+    font-family: 'Montserrat', sans-serif !important;
+  }
 
-    .header h1 {
-      margin: 0;
-      color: #ff7e5f;
-      font-size: 32px;
-      font-family: Georgia;
-    }
+  body {
+    margin: 0;
+    background: #f4f4f4;
+  }
 
-    .cart-btn {
-      background: #28a745;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
+  section { margin-bottom: 50px; }
 
-    /* BANNER */
-    .banner {
-      width: 100%;
-      height: 450px;
-      background-image: url("https://vagabondtoursofireland.com/images-adventures/blog/farming/farmer-farming-cattle-cows-green-field-ireland.jpg?w1366;h769;");
-      background-size: cover;
-      background-position: center;
-      border-bottom: 4px solid #ff7e5f;
-    }
+  /* HEADER */
+  .header {
+    background: white;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
 
-    /* SUBSCRIPTION */
-    .subscription {
-      background: #fff7e6;
-      padding: 25px;
-      text-align: center;
-      margin: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
+  .header h1 {
+    margin: 0;
+    color: #2E5E4E;
+    font-size: 40px;
+    font-weight: 690;
+  }
 
-    .subscription h2 {
-      background: linear-gradient(to right, red, orange, yellow, green, blue, purple);
-      -webkit-background-clip: text;
-      color: transparent;
-      font-size: 28px;
-    }
+  .cart-btn {
+    background: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
 
-    /* PRODUCTS GRID */
-    .products-title {
-      text-align: center;
-      font-size: 28px;
-      font-weight: bold;
-      margin: 30px 0 10px;
-    }
+  /* BANNER */
+  .banner {
+    width: 100%;
+    height: 550px;
+    background-image: url("https://img.freepik.com/premium-vector/dairy-cows-pasture-with-milk-bottles-can-wooden-surface_175103-1984.jpg?semt=ais_hybrid&w=740&q=80");
+    background-size: cover;
+    background-position: left;
+    border-bottom: 4px solid #ff7e5f;
+    margin-top: 2px;
+  }
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 25px;
-      padding: 20px;
-    }
+  /* SUBSCRIPTION */
+  .subscription {
+    background: #09591ddf;
+    padding: 25px;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
 
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      transition: 0.3s;
-    }
+  .subscription h2 {
+    background: #f4f4f4;
+    color: black;
+    font-size: 28px;
+    padding: 8px;
+    border-radius: 6px;
+  }
 
-    .card:hover {
-      transform: scale(1.05);
-    }
+  .products-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+  }
 
-    .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: contain;
-      border-radius: 8px;
-    }
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 25px;
+    padding: 20px;
+  }
 
-    .price {
-      font-size: 18px;
-      color: #28a745;
-      font-weight: bold;
-      margin: 8px 0;
-    }
+  .card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: 0.3s;
+  }
 
-    .btn {
-      background: #ff7e5f;
-      color: white;
-      border: none;
-      padding: 10px;
-      width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 15px;
-    }
+  .card:hover { transform: scale(1.05); }
 
-    .btn:hover {
-      background: #eb5e28;
-    }
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: contain;
+    border-radius: 8px;
+  }
 
-    /* CONTACT */
-    .contact {
-      background: #0077b6;
-      color: white;
-      padding: 20px;
-      margin-top: 40px;
-      text-align: center;
-    }
+  .price {
+    font-size: 18px;
+    color: #28a745;
+    font-weight: bold;
+  }
 
-  </style>
+  .btn {
+    background:#09591ddf;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* PHOTO + TEXT SECTIONS */
+  .photo-text-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: white;
+    padding: 30px;
+    margin: 20px;
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .photo-text-box img {
+    width: 40%;
+    max-width: 350px;
+    border-radius: 12px;
+  }
+
+  .background { background-color:#ddeed1; padding:20px; border-radius:10px; }
+  .background3 { background:green; padding:30px; border-radius:10px; color:white; }
+
+  /* CONTACT */
+  .contact {
+    background:#8dccdc;
+    color: white;
+    padding: 25px;
+    text-align: center;
+  }
+</style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1>DiaryGo</h1>
-    <button class="cart-btn" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</button>
-  </div>
+<!-- HEADER -->
+<div class="header">
+  <h1>DiaryGo</h1>
 
-  <!-- BANNER -->
-  <div class="banner"></div>
+  <!-- Django URL to Cart Page -->
+  <a href="{% url 'cart' %}">
+    <button class="cart-btn">🛒 Cart (<span id="cartCount">0</span>)</button>
+</a>
 
-  <!-- SUBSCRIPTION -->
+</div>
+
+<!-- BANNER -->
+<section><div class="banner"></div></section>
+
+<!-- SUBSCRIPTION -->
+<section>
   <div class="subscription">
     <h2>🌅 Subscribe & get Fresh Delivery Every Morning!</h2>
-    <p><b>Pay ₹199 and get 50ml EXTRA every week + special offers 🎁</b></p>
+    <p><b>Pay ₹199 and get 50ml EXTRA every week + offers 🎁</b></p>
   </div>
+</section>
 
-  <!-- PRODUCTS -->
+<section>
   <div class="products-title">🥛 DESI PRODUCTS</div>
+</section>
 
-  <div class="products">
-    
-    <!-- PRODUCT 1 -->
-    <div class="card">
-      <img src="https://static.vecteezy.com/system/resources/previews/030/674/025/large_2x/product-shots-of-milk-high-quality-4k-ultra-hd-h-free-photo.jpg">
-      <h3>Fresh Milk</h3>
-      <p>1 Liter</p>
-      <div class="price">₹50</div>
-      <button class="btn" onclick="addToCart('Fresh Milk', 50)">Add to Cart</button>
-    </div>
+<section>
+<div class="products">
 
-    <!-- PRODUCT 2 -->
-    <div class="card">
-      <img src="https://cdn.ibcstack.com/article/ef16833c-0100-4d80-8f32-e2681766f856/21-617e2953dc272.webp">
-      <h3>Curd</h3>
-      <p>250 gm</p>
-      <div class="price">₹20</div>
-      <button class="btn" onclick="addToCart('Curd', 20)">Add to Cart</button>
-    </div>
-
-    <!-- PRODUCT 3 -->
-    <div class="card">
-      <img src="https://c.ndtvimg.com/2019-04/n2q67ooo_lassi_625x300_15_April_19.jpg">
-      <h3>Lassi</h3>
-      <p>500ml</p>
-      <div class="price">₹40</div>
-      <button class="btn" onclick="addToCart('Lassi', 40)">Add to Cart</button>
-    </div>
-
-    <!-- PRODUCT 4 -->
-    <div class="card">
-      <img src="https://www.indianveggiedelight.com/wp-content/uploads/2023/01/masala-chaas-featured.jpg">
-      <h3>Butter Milk</h3>
-      <p>500ml</p>
-      <div class="price">₹30</div>
-      <button class="btn" onclick="addToCart('Butter Milk', 30)">Add to Cart</button>
-    </div>
-
-    <!-- PRODUCT 5 -->
-    <div class="card">
-      <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/296881078/GB/SO/PX/35097522/pure-cow-ghee-500x500.png">
-      <h3>Pure Ghee</h3>
-      <p>200 gms</p>
-      <div class="price">₹150</div>
-      <button class="btn" onclick="addToCart('Pure Ghee', 150)">Add to Cart</button>
-    </div>
-
+  <div class="card">
+    <img src="https://static.vecteezy.com/system/resources/previews/030/674/025/large_2x/product-shots-of-milk-high-quality-4k-ultra-hd-h-free-photo.jpg">
+    <h3>Fresh Milk</h3>
+    <p>1 Liter</p>
+    <div class="price">₹50</div>
+    <button class="btn" onclick="addToCart('Fresh Milk', 50)">Add</button>
   </div>
 
-  <!-- CONTACT -->
-  <div class="contact">
-    <h3>📞 Contact Us</h3>
-    <p>Email: support@diarygo.com | Phone: +91 9876543210</p>
-    <p>Follow us on Instagram & Facebook for offers!</p>
+  <div class="card">
+    <img src="https://cdn.ibcstack.com/article/ef16833c-0100-4d80-8f32-e2681766f856/21-617e2953dc272.webp">
+    <h3>Curd</h3>
+    <p>250 gm</p>
+    <div class="price">₹20</div>
+    <button class="btn" onclick="addToCart('Curd', 20)">Add</button>
   </div>
 
-  <!-- CART SCRIPT -->
-  <script>
-    let cart = [];
+  <div class="card">
+    <img src="https://c.ndtvimg.com/2019-04/n2q67ooo_lassi_625x300_15_April_19.jpg">
+    <h3>Lassi</h3>
+    <p>500ml</p>
+    <div class="price">₹40</div>
+    <button class="btn" onclick="addToCart('Lassi', 40)">Add</button>
+  </div>
 
-    function addToCart(name, price) {
-      cart.push({ name, price });
-      document.getElementById("cartCount").innerText = cart.length;
-      alert(name + " added to cart!");
-    }
+  <div class="card">
+    <img src="https://www.indianveggiedelight.com/wp-content/uploads/2023/01/masala-chaas-featured.jpg">
+    <h3>Butter Milk</h3>
+    <p>500ml</p>
+    <div class="price">₹30</div>
+    <button class="btn" onclick="addToCart('Butter Milk', 30)">Add</button>
+  </div>
 
-    function showCart() {
-      if (cart.length == 0) {
-        alert("Your cart is empty!");
-        return;
-      }
+  
+  <div class="card">
+    <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/296881078/GB/SO/PX/35097522/pure-cow-ghee-500x500.png">
+    <h3>Pure Ghee</h3>
+    <p>200 gms</p>
+    <div class="price">₹150</div>
+    <button class="btn" onclick="addToCart('Pure Ghee', 150)">Add</button>
+  </div>
 
-      let msg = "🛒 YOUR CART:\n\n";
+</div>
+</section>
 
-      cart.forEach((item, i) => {
-        msg += `${i+1}. ${item.name} - ₹${item.price}\n`;
-      });
+<section>
+  <div class="products-title">🍯 MORE FARM PRODUCTS</div>
+</section>
 
-      alert(msg);
-    }
-  </script>
+<section>
+<div class="products">
+
+  
+  <div class="card">
+    <img src="https://www.happyfoodstube.com/wp-content/uploads/2025/10/hot-honey-9-480x270.jpg">
+    <h3>Organic Honey</h3>
+    <p>250 gms</p>
+    <div class="price">₹180</div>
+    <button class="btn" onclick="addToCart('Organic Honey', 180)">Add</button>
+  </div>
+
+
+  <div class="card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQf8-mv6_lzx8Bgjq4WeklW8VuIwtuXwpTuw&shttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQf8-mv6_lzx8Bgjq4WeklW8VuIwtuXwpTuw&s">
+    <h3>Fresh Paneer</h3>
+    <p>200 gms</p>
+    <div class="price">₹90</div>
+    <button class="btn" onclick="addToCart('Fresh Paneer', 90)">Add</button>
+  </div>
+
+ 
+  <div class="card">
+    <img src="https://j6e2i8c9.delivery.rocketcdn.me/wp-content/uploads/2016/01/Homemade-white-makhan-02.jpg">
+    <h3>Pure Butter</h3>
+    <p>100 gms</p>
+    <div class="price">₹60</div>
+    <button class="btn" onclick="addToCart('Pure Butter', 60)">Add</button>
+  </div>
+
+
+  <div class="card">
+    <img src="https://i.pinimg.com/736x/7d/2a/0a/7d2a0aca48a5a61fdf9f6059b9f654e1.jpg">
+    <h3>COW MILK</h3>
+    <p>500 ml</p>
+    <div class="price">₹45</div>
+    <button class="btn" onclick="addToCart('Milk Powder', 140)">Add</button>
+  </div>
+
+</div>
+</section>
+
+
+<section class="photo-text-box">
+  <img src="">
+  <div class="background">
+    <h3>Our Farm Process</h3>
+    <p>
+     Our delivery agents follow a strict, step-by-step process to ensure that every drop 
+     of milk collected from farmers is pure, fresh, and safe for customers. The process begins 
+     with the collection of milk directly from trusted farmers. Once collected, the first quality
+      check is performed using a lactometer, which helps measure the density of the milk and detect
+       dilution. After this, a quick on-spot purity test is conducted by shaking the milk in a clean
+        bottle—pure milk produces thin foam, fewer bubbles, and does not emit any unpleasant odor
+        . Only when the milk passes all checks is it accepted. The delivery agent then logs the
+         collected quantity and farmer details into the website system for transparency and accurate
+          tracking. After verification, 
+     the milk is made available for customer orders and delivered fresh to their doorstep.
+    </p>
+    <p> Bought from trusted farmers</p>
+  </div>
+</section>
+
+<!-- PHOTO + TEXT 2 -->
+<section class="photo-text-box">
+  <img src="https://www.fmo.nl/l/en/library/download/urn:uuid:4c9a99ad-6030-4a66-a686-c8eec364978a/0l9a8650.jpg?scaleType=4&width=595&height=397">
+  <div class="background3">
+    <h3>Why Customers Trust Us</h3>
+    <p>
+      "Many farmers in our community have faced challenges for years due to unstable markets and unfair pricing. DiaryGo has helped change that. 
+      By offering transparent and consistent rates, they allow us to focus on producing high-quality dairy instead of worrying about middlemen. 
+      We now work with confidence, knowing that our efforts are valued and our produce reaches your home without compromise. Together,
+       we are building a sustainable future for rural families while providing consumers with the purity they deserve."
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+<div class="contact">
+  <h3>📞 Contact Us</h3>
+  <p>Email: support@diarygo.com | Phone: +91 123456789</p>
+  <p>Need Help? <a href="{% url 'help' %}">HELP</a></p>
+  <p> Want to know more about us?<a href="{% url 'about' %}" color:"">About Us</a> </p>
+<p> Be a family member<a href="{% url 'join' %}">Join Us</a> </p>
+
+</div>
+</section>
+
+<!-- JAVASCRIPT -->
+<script>
+function addToCart(name, price) {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  let item = cart.find(p => p.name === name);
+
+  if (item) item.qty++;
+  else cart.push({ name, price, qty: 1 });
+
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+}
+
+function updateCartCount() {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = cart.reduce((sum, item) => sum + item.qty, 0);
+  document.getElementById("cartCount").innerText = total;
+}
+
+// Auto update count on page load
+updateCartCount();
+</script>
 
 </body>
 </html>

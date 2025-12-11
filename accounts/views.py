@@ -56,3 +56,12 @@ def homeView(request):
     entries = DiaryEntry.objects.filter(user_id=request.session['user_id'])
 
     return render(request, "home.html", {"name": name, "entries": entries})
+def cartView(request):
+    return render(request, "cart.html")
+def help(request):
+    return render(request,"help.html")
+def joinView(request):
+    return render(request, "join.html")
+
+def aboutView(request):
+    return render(request, "about.html")
